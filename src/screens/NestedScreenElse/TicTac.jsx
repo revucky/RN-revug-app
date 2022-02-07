@@ -69,8 +69,10 @@ const TicTac = () => {
     const win = winner(markers);
     if (win === "X") {
       alert("Гравець Х переміг");
+      resetMark();
     } else if (win === "O") {
       alert("Гравець О переміг");
+      resetMark();
     }
   }, [markers]);
 
