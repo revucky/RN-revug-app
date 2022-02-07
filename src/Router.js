@@ -54,13 +54,13 @@ export const useRoute = (isAuth) => {
           headerShown: false,
           tabBarIcon: ({ focused, color }) => (
             <MaterialCommunityIcons
-              name="tooltip-account"
+              name="dots-horizontal"
               size={28}
               color={color}
             />
           ),
         }}
-        name="Профіль"
+        name="Ще"
         component={ProfileScreen}
       />
     </TabNav.Navigator>
