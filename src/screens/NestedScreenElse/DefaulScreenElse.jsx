@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   Pressable,
+  Modal,
 } from "react-native";
 import { authSignOutUser } from "../../redux/auth/authOperations";
 import { useDispatch } from "react-redux";
@@ -17,6 +18,7 @@ const DefaulScreenElse = ({ navigation }) => {
   const { nickname } = useSelector((state) => state.auth);
   const { userId } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     getUserPosts();
@@ -31,12 +33,40 @@ const DefaulScreenElse = ({ navigation }) => {
 
   const signOut = () => {
     dispatch(authSignOutUser());
+    setModalOpen(false);
   };
   return (
     <View style={s.container}>
       <View style={s.wrap}>
+        <Modal visible={modalOpen} animationType="fade" transparent={true}>
+          <View style={s.modalwrap}>
+            <Text style={s.textModal}>Бажаєте вийти?</Text>
+            <View style={s.btnWrap}>
+              <TouchableOpacity
+                style={s.btn}
+                activeOpacity={0.7}
+                onPress={signOut}
+              >
+                <Text style={s.textBtn}>так</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={s.btn}
+                activeOpacity={0.7}
+                onPress={() => setModalOpen(false)}
+              >
+                <Text style={s.textBtn}>ні</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
         <Text style={s.text}>Вітаю, тебе {nickname}</Text>
-        <TouchableOpacity style={s.btn} activeOpacity={0.7} onPress={signOut}>
+        <TouchableOpacity
+          style={s.btn}
+          activeOpacity={0.7}
+          onPress={() => {
+            setModalOpen(true);
+          }}
+        >
           <Text style={s.textBtn}>Вихід</Text>
         </TouchableOpacity>
       </View>
@@ -108,6 +138,34 @@ const s = StyleSheet.create({
     marginTop: 40,
     justifyContent: "center",
     flexDirection: "row",
+  },
+  modalwrap: {
+    height: 200,
+    backgroundColor: "#fff",
+    marginTop: 300,
+    marginHorizontal: 30,
+    borderRadius: 30,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.44,
+    shadowRadius: 10.32,
+
+    elevation: 16,
+  },
+  textModal: {
+    color: "#1a1e25",
+    fontFamily: "NotoSans-Regular",
+    fontSize: 20,
+    alignSelf: "center",
+    marginTop: 50,
+  },
+  btnWrap: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 50,
   },
   text: {
     color: "#1a1e25",

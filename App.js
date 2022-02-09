@@ -3,6 +3,7 @@ import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import {} from "react-native";
 import { Provider } from "react-redux";
+import { ModalPortal } from "react-native-modals";
 
 import { store } from "./src/redux/store";
 import Main from "./src/components/Main";
@@ -33,6 +34,7 @@ export default function App() {
     <>
       <Provider store={store}>
         <Main />
+        <ModalPortal />
       </Provider>
     </>
   );

@@ -8,6 +8,7 @@ import {
   Image,
   Dimensions,
 } from "react-native";
+import Toast from "react-native-toast-message";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -68,10 +69,18 @@ const TicTac = () => {
   useEffect(() => {
     const win = winner(markers);
     if (win === "X") {
-      alert("Гравець Х переміг");
+      Toast.show({
+        type: "info",
+        text1: "Переможець",
+        text2: "Гравець Х переміг",
+      });
       resetMark();
     } else if (win === "O") {
-      alert("Гравець О переміг");
+      Toast.show({
+        type: "info",
+        text1: "Переможець",
+        text2: "Гравець О переміг",
+      });
       resetMark();
     }
   }, [markers]);
@@ -208,6 +217,7 @@ const TicTac = () => {
           )}
         </Pressable>
       </View>
+      <Toast position="top" topOffset={20} autoHide visibilityTime={2500} />
     </SafeAreaView>
   );
 };
