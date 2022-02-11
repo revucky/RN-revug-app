@@ -9,6 +9,7 @@ import {
   Button,
 } from "react-native";
 import { Foundation, FontAwesome } from "@expo/vector-icons";
+import Gallery from "react-native-image-gallery";
 import db from "../../../firebase/config";
 
 const DefaultScreenPost = ({ route, navigation }) => {

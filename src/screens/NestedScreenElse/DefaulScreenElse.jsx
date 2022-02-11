@@ -8,11 +8,14 @@ import {
   Image,
   Pressable,
   Modal,
+  Dimensions
 } from "react-native";
 import { authSignOutUser } from "../../redux/auth/authOperations";
 import { useDispatch } from "react-redux";
 import db from "../../../firebase/config";
 import { Fontisto } from "@expo/vector-icons";
+
+const windowWidth = Dimensions.get("window").width;
 
 const DefaulScreenElse = ({ navigation }) => {
   const { nickname } = useSelector((state) => state.auth);
@@ -114,13 +117,13 @@ const DefaulScreenElse = ({ navigation }) => {
           <Pressable style={s.wrapBtn_mid_right}>
             <Image
               style={{ width: 28, height: 28, marginRight: 10 }}
-              source={require("../../../assets/replay.png")}
+              source={require("../../../assets/birdIcon.png")}
             />
             <Text
-              // onPress={() => navigation.navigate("Секундомір")}
+              onPress={() => navigation.navigate("Щур")}
               style={s.text}
             >
-              Щось
+              Щур
             </Text>
           </Pressable>
         </View>
@@ -219,7 +222,7 @@ const s = StyleSheet.create({
     justifyContent: "center",
     borderTopWidth: 2,
     borderRightWidth: 2,
-    width: 188,
+    width: windowWidth / 2,
     height: 70,
   },
   wrapBtn_top_right: {
@@ -229,7 +232,7 @@ const s = StyleSheet.create({
     justifyContent: "center",
     borderTopWidth: 2,
     borderLeftWidth: 0,
-    width: 187,
+    width: windowWidth / 2,
     height: 70,
   },
   wrapBtn_mid_left: {
@@ -240,7 +243,7 @@ const s = StyleSheet.create({
     borderTopWidth: 2,
     borderRightWidth: 2,
     borderBottomWidth: 2,
-    width: 188,
+    width: windowWidth / 2,
     height: 70,
   },
   wrapBtn_mid_right: {
@@ -249,9 +252,8 @@ const s = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderTopWidth: 2,
-    borderRightWidth: 2,
     borderBottomWidth: 2,
-    width: 188,
+    width: windowWidth / 2,
     height: 70,
   },
 });

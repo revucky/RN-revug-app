@@ -3,6 +3,7 @@ import DefaulScreenElse from "../NestedScreenElse/DefaulScreenElse.jsx";
 import StopWatch from "../NestedScreenElse/StopWatch";
 import TicTac from "../NestedScreenElse/TicTac";
 import TowerDefense from "../NestedScreenElse/TowerDefense";
+import Shchur from "../NestedScreenElse/Shchur/Shchur";
 
 const NestedInElse = createStackNavigator();
 
@@ -19,6 +20,7 @@ const ProfileScreen = () => {
       <NestedInElse.Screen name="Секундомір" component={StopWatch} />
       <NestedInElse.Screen name="Іксо" component={TicTac} />
       <NestedInElse.Screen name="ВежаЗахисту" component={TowerDefense} />
+      <NestedInElse.Screen name="Щур" component={Shchur} />
     </NestedInElse.Navigator>
   );
 };
