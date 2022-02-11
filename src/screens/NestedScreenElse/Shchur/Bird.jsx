@@ -10,7 +10,7 @@ const Bird = ({birdBottom,birdLeft}) => {
     //     width: birdWidth, bottom: birdBottom -(birdHeight/2)}}/>
 <Image style={{...s.bird, height: birdHeight,
   left: birdLeft -(birdWidth/2),
-   width: birdWidth, bottom: birdBottom -(birdHeight/2)}} source={require("../../../../assets/birdIconR.png")}/>
+   width: birdWidth, bottom: birdBottom -(birdHeight/2)}} source={require("../../../../assets/shchur/birdIconR.png")}/>
   )
 }
 

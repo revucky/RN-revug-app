@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet,  View, Image } from 'react-native'
 import React from 'react'
 
 const Obstacles = ({randomBottom, 
@@ -12,11 +12,11 @@ const Obstacles = ({randomBottom,
     width: obstaclesWidth, height: obstaclesHeigth, left: obstaclesLeft,
     bottom: randomBottom + obstaclesHeigth + gap,
     }}/>  */}
-    <Image source={require('../../../../assets/bld.gif')} style={{position: 'absolute',
+    <Image source={require('../../../../assets/shchur/bld.gif')} style={{position: 'absolute',
     width: obstaclesWidth, height: obstaclesHeigth, left: obstaclesLeft,
     bottom: randomBottom + obstaclesHeigth + gap,
     }}/>
-    <Image source={require('../../../../assets/bld.gif')} style={{position: 'absolute',
+    <Image source={require('../../../../assets/shchur/bld.gif')} style={{position: 'absolute',
     width: obstaclesWidth, height: obstaclesHeigth, left: obstaclesLeft,
     bottom: randomBottom,
     }}/>

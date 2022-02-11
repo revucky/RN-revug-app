@@ -93,7 +93,7 @@ const DefaulScreenElse = ({ navigation }) => {
         <TouchableOpacity style={s.wrapBtn_top_right}>
           <Image
             style={{ width: 28, height: 28, marginRight: 10 }}
-            source={require("../../../assets/tictac.png")}
+            source={require("../../../assets/xo/tictac.png")}
           />
           <Text onPress={() => navigation.navigate("Іксо")} style={s.text}>
             ІксО
@@ -117,7 +117,7 @@ const DefaulScreenElse = ({ navigation }) => {
           <Pressable style={s.wrapBtn_mid_right}>
             <Image
               style={{ width: 28, height: 28, marginRight: 10 }}
-              source={require("../../../assets/birdIcon.png")}
+              source={require("../../../assets/shchur/birdIcon.png")}
             />
             <Text
               onPress={() => navigation.navigate("Щур")}

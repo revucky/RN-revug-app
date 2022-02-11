@@ -98,7 +98,7 @@ const TicTac = () => {
       <Pressable style={s.reset} onPress={resetMark}>
         <Image
           style={s.restIcon}
-          source={require("../../../assets/replay.png")}
+          source={require("../../../assets/replay1.png")}
         />
       </Pressable>
       <View style={s.areaGame}>
@@ -107,11 +107,11 @@ const TicTac = () => {
           {markers[0] === "X" && (
             <Image
               style={s.icon}
-              source={require("../../../assets/cross.png")}
+              source={require("../../../assets/xo/cross.png")}
             />
           )}
           {markers[0] === "O" && (
-            <Image style={s.icon} source={require("../../../assets/0.png")} />
+            <Image style={s.icon} source={require("../../../assets/xo/0.png")} />
           )}
         </Pressable>
         {/* top mid cell */}
@@ -119,11 +119,11 @@ const TicTac = () => {
           {markers[1] === "X" && (
             <Image
               style={s.icon}
-              source={require("../../../assets/cross.png")}
+              source={require("../../../assets/xo/cross.png")}
             />
           )}
           {markers[1] === "O" && (
-            <Image style={s.icon} source={require("../../../assets/0.png")} />
+            <Image style={s.icon} source={require("../../../assets/xo/0.png")} />
           )}
         </Pressable>
         {/* top right cell */}
@@ -131,11 +131,11 @@ const TicTac = () => {
           {markers[2] === "X" && (
             <Image
               style={s.icon}
-              source={require("../../../assets/cross.png")}
+              source={require("../../../assets/xo/cross.png")}
             />
           )}
           {markers[2] === "O" && (
-            <Image style={s.icon} source={require("../../../assets/0.png")} />
+            <Image style={s.icon} source={require("../../../assets/xo/0.png")} />
           )}
         </Pressable>
         {/* mid left cell */}
@@ -143,11 +143,11 @@ const TicTac = () => {
           {markers[3] === "X" && (
             <Image
               style={s.icon}
-              source={require("../../../assets/cross.png")}
+              source={require("../../../assets/xo/cross.png")}
             />
           )}
           {markers[3] === "O" && (
-            <Image style={s.icon} source={require("../../../assets/0.png")} />
+            <Image style={s.icon} source={require("../../../assets/xo/0.png")} />
           )}
         </Pressable>
         {/* mid mid cell */}
@@ -155,11 +155,11 @@ const TicTac = () => {
           {markers[4] === "X" && (
             <Image
               style={s.icon}
-              source={require("../../../assets/cross.png")}
+              source={require("../../../assets/xo/cross.png")}
             />
           )}
           {markers[4] === "O" && (
-            <Image style={s.icon} source={require("../../../assets/0.png")} />
+            <Image style={s.icon} source={require("../../../assets/xo/0.png")} />
           )}
         </Pressable>
         {/* mid right cell */}
@@ -167,11 +167,11 @@ const TicTac = () => {
           {markers[5] === "X" && (
             <Image
               style={s.icon}
-              source={require("../../../assets/cross.png")}
+              source={require("../../../assets/xo/cross.png")}
             />
           )}
           {markers[5] === "O" && (
-            <Image style={s.icon} source={require("../../../assets/0.png")} />
+            <Image style={s.icon} source={require("../../../assets/xo/0.png")} />
           )}
         </Pressable>
         {/* bottom left cell */}
@@ -182,11 +182,11 @@ const TicTac = () => {
           {markers[6] === "X" && (
             <Image
               style={s.icon}
-              source={require("../../../assets/cross.png")}
+              source={require("../../../assets/xo/cross.png")}
             />
           )}
           {markers[6] === "O" && (
-            <Image style={s.icon} source={require("../../../assets/0.png")} />
+            <Image style={s.icon} source={require("../../../assets/xo/0.png")} />
           )}
         </Pressable>
         {/* bottom mid cell */}
@@ -194,11 +194,11 @@ const TicTac = () => {
           {markers[7] === "X" && (
             <Image
               style={s.icon}
-              source={require("../../../assets/cross.png")}
+              source={require("../../../assets/xo/cross.png")}
             />
           )}
           {markers[7] === "O" && (
-            <Image style={s.icon} source={require("../../../assets/0.png")} />
+            <Image style={s.icon} source={require("../../../assets/xo/0.png")} />
           )}
         </Pressable>
         {/* bottom right cell */}
@@ -209,11 +209,11 @@ const TicTac = () => {
           {markers[8] === "X" && (
             <Image
               style={s.icon}
-              source={require("../../../assets/cross.png")}
+              source={require("../../../assets/xo/cross.png")}
             />
           )}
           {markers[8] === "O" && (
-            <Image style={s.icon} source={require("../../../assets/0.png")} />
+            <Image style={s.icon} source={require("../../../assets/xo/0.png")} />
           )}
         </Pressable>
       </View>
@@ -330,12 +330,12 @@ const s = StyleSheet.create({
   },
   reset: {
     position: "absolute",
-    top: 80,
+    top: 90,
     right: 20,
   },
   restIcon: {
-    width: 80,
-    height: 80,
+    width: 70,
+    height: 70,
   },
 });
 

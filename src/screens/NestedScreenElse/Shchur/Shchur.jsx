@@ -109,8 +109,8 @@ setModalOpen(false);
   return (
     <ImageBackground
           style={s.img}
-          // source={require('../../../../assets/city.gif')}
-          source={require('../../../../assets/image.jpg')}
+          // source={require('../../../../assets/shchur/city.gif')}
+          source={require('../../../../assets/shchur/image.jpg')}
           // source={image}
           resizeMode="cover"
         >
