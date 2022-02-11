@@ -1,9 +1,12 @@
-import { StyleSheet,  View, Dimensions, TouchableWithoutFeedback, Text,Pressable,Image } from 'react-native'
+import { StyleSheet,  View, Dimensions, TouchableWithoutFeedback, Text,
+  Pressable,Image, Modal,ImageBackground } from 'react-native'
 import {useState, useEffect} from 'react'
 import Bird from './Bird';
 import Obstacles from './Obstacles';
 
-const Shchur = () => {
+const image = { uri: "https://media.nature.com/w1219/magazine-assets/d41586-018-07202-6/d41586-018-07202-6_16233658.gif" };
+
+const Shchur = ({ navigation}) => {
   const screenWidth = Dimensions.get('screen').width
   const screenHeight = Dimensions.get('screen').height
   const birdLeft = screenWidth /2
@@ -14,10 +17,11 @@ const Shchur = () => {
   const [obstaclesNegHeigthTwo, setObstaclesNegHeigthTwo] = useState(0)
   const [isGameOver, setIsGameOver] = useState(false)
   const [score, setScore] = useState(0)
-  const obstaclesWidth = 60
+  const [modalOpen, setModalOpen] = useState(false);
+  const obstaclesWidth = 80
   const obstaclesHeigth = 300
-  const gap = 200
-  const gravity = 3
+  const gap = 160
+  const gravity = 5
   let gameTimerId 
   let obstaclesLeftTimerId
   let obstaclesLeftTimerIdTwo
@@ -89,6 +93,7 @@ const gameOver= ()=>{
   clearInterval(obstaclesLeftTimerId)
   clearInterval(obstaclesLeftTimerIdTwo)
   setIsGameOver(true)
+  setModalOpen(true);
 }
 const reset =()=>{
   setBirdBottom(screenHeight/2) 
@@ -98,11 +103,19 @@ setObstaclesNegHeigth(0)
   setObstaclesNegHeigthTwo(0)
   setIsGameOver(false)
 setScore(0)
+setModalOpen(false);
 }
 
-  return (<TouchableWithoutFeedback onPress={fly}>
+  return (
+    <ImageBackground
+          style={s.img}
+          // source={require('../../../../assets/city.gif')}
+          source={require('../../../../assets/image.jpg')}
+          // source={image}
+          resizeMode="cover"
+        >
+  <TouchableWithoutFeedback onPress={fly}>
     <View style={s.container}>
-      {isGameOver && <Text style={s.text}>Score: {score}</Text>}
     <Bird birdBottom={birdBottom} birdLeft={birdLeft}/>
     <Obstacles randomBottom={obstaclesNegHeigth}
      color={'green'} obstaclesLeft={obstaclesLeft}
@@ -110,17 +123,39 @@ setScore(0)
      obstaclesWidth={obstaclesWidth} gap={gap}/>
      {/*  */}
     <Obstacles randomBottom={obstaclesNegHeigthTwo}
-     color={'pink'} obstaclesLeft={obstaclesLeftTwo}
+     color={'pink'}
+      obstaclesLeft={obstaclesLeftTwo}
       obstaclesHeigth={obstaclesHeigth}
      obstaclesWidth={obstaclesWidth} gap={gap}/>
-    {isGameOver && <Pressable style={s.reset} onPress={reset}>
+    {isGameOver && 
+    <Modal visible={modalOpen} animationType="fade" transparent={true}>
+      <View style={s.modalwrap}>
+      {isGameOver && <Text style={s.text}>Your score: {score}</Text>}
+    <Pressable style={s.reset} onPress={reset}>
+      <Text style={s.text}>Repeat game?</Text>
         <Image
           style={s.restIcon}
           source={require("../../../../assets/replay.png")}
         />
-      </Pressable>}
+      </Pressable>
+      <Pressable style={s.wrapBtn_mid_right}>
+            {/* <Image
+              style={{ width: 28, height: 28, marginRight: 10 }}
+              source={require("../../../assets/birdIcon.png")}
+            /> */}
+            <Text
+              onPress={() => navigation.navigate("Початкова")}
+              style={s.text}
+            >
+              Back to menu
+            </Text>
+          </Pressable>
+      </View>
+      </Modal>
+      }
     </View>
     </TouchableWithoutFeedback>
+    </ImageBackground>
   )
 }
 
@@ -132,17 +167,41 @@ const s = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  img: {
+    flex: 1,
+    // resizeMode: "cover",
+    // alignItems: "center",
+    // justifyContent: "flex-end",
+  },
   reset: {
-    position: "absolute",
-    top: 80,
-    right: 20,
+    alignItems: "center",
+flexDirection: "row",
   },
   restIcon: {
-    width: 80,
-    height: 80,
+    width: 40,
+    height: 40,
   },
   text: {
     fontSize: 20,
     fontFamily: "NotoSans-Regular",
-    letterSpacing: 1,}
+    letterSpacing: 1,
+  },
+  modalwrap: {
+    height: 200,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    marginTop: 300,
+    marginHorizontal: 30,
+    borderRadius: 30,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.44,
+    shadowRadius: 10.32,
+
+    elevation: 16,
+  },
 })
